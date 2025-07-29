@@ -1,0 +1,70 @@
+# Binaries for programs and plugins
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+gusher
+gusher.exe
+
+# Test binary, built with `go test -c`
+*.test
+
+# Output of the go coverage tool, specifically when used with LiteIDE
+*.out
+
+# Dependency directories (remove if you want to commit dependencies)
+vendor/
+
+# Go workspace file
+go.work
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# Linux specific
+*~
+.swp
+.goutputstream-*
+.fuse_hidden*
+.directory
+
+# Temporary files
+tmp/
+*.tmp
+*.temp
+
+# Log files
+*.log
+
+# Build artifacts
+/bin/
+/build/
+/dist/
+
+# Environment files
+.env
+.env.local
+.env.production
+
+# Coverage output
+coverage.txt
+coverage.html
+
+# Go specific
+# Binaries for programs and plugins
+*.exe
