@@ -30,13 +30,13 @@ func init() {
 	cobra.OnInitialize(initConfig)
 
 	rootCmd.PersistentFlags().StringVar(&cfgFile, "config", "", "config file (default is $HOME/.cobra.yaml)")
-	rootCmd.PersistentFlags().StringP("author", "a", "Uhm-Why", "author name for copyright attribution")
+	rootCmd.PersistentFlags().StringP("author", "a", "Uhm-why", "author name for copyright attribution")
 	rootCmd.PersistentFlags().StringVarP(&userLicense, "license", "l", "", "name of license for the project")
 	rootCmd.PersistentFlags().Bool("viper", true, "use Viper for configuration")
 	viper.BindPFlag("author", rootCmd.PersistentFlags().Lookup("author"))
 	viper.BindPFlag("useViper", rootCmd.PersistentFlags().Lookup("viper"))
-	viper.SetDefault("author", "Uhm-Why <Ldhacker@live.com>")
-	viper.SetDefault("license", "apache")
+	viper.SetDefault("author", "Uhm-why <dustin.hacker0@icloud.com>")
+	viper.SetDefault("license", "MIT")
 }
 
 func initConfig() {
