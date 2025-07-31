@@ -2,7 +2,9 @@ package fileio
 
 import (
 	"errors"
+	"fmt"
 	"os"
+	"strings"
 )
 
 const (
@@ -31,18 +33,32 @@ func GetFileSize(fname string) (int64, error) {
 	return fileS, nil
 }
 
-func ChunkFile(fname string, fsize int64) int64 {
+func ChunkFile(args []string) {
+	fsize, err := GetFileSize(strings.Join(args, " "))
+	if err != nil {
+		fmt.Printf("Error: %s.\n", err)
+	} else {
+		fmt.Printf("File Size: %v bits\n", fsize)
+	}
 
-	chunkSize := SelectChunkSize(fsize)
+	var chunkSize int64 = SelectChunkSize(fsize)
+	fmt.Printf("Chunk Size: %v\n", chunkSize)
+	numberOfChunks, err2 := SelectNumberOfChunks(fsize, chunkSize)
+	if err2 != nil {
+		fmt.Printf("Error: %s. \n", err2)
+	} else {
+		fmt.Printf("File will be divided into %v chunks\n", numberOfChunks)
+	}
 
-	return chunkSize
 }
 
 func SelectChunkSize(fsize int64) int64 {
 	if fsize <= 0 {
 		return 0
 	}
-
+	if fsize >= maxChunkSize {
+		return maxChunkSize
+	}
 	if fsize <= minChunkSize {
 		return fsize
 	}
@@ -54,4 +70,18 @@ func SelectChunkSize(fsize int64) int64 {
 	}
 
 	return minChunkSize
+}
+
+func SelectNumberOfChunks(fsize int64, csize int64) (int64, error) {
+	switch {
+	case fsize <= 0 || csize <= 0:
+		return 0, errors.New("error: no file size and/or chunk size recieved at SelectNumberOfChunks")
+	case fsize%csize == 0:
+		return fsize / csize, nil
+	case fsize%csize > 0:
+		return (fsize / csize) + 1, nil
+	default:
+		return fsize / csize, nil
+	}
+
 }
