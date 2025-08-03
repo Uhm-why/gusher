@@ -1,4 +1,4 @@
-package hash
+package fileio
 
 import (
 	"crypto/sha256"

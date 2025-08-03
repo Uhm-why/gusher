@@ -5,7 +5,6 @@ import (
 	"strings"
 
 	"github.com/Uhm-why/gusher/chunk"
-	"github.com/Uhm-why/gusher/hash"
 )
 
 func ChunkFile(args []string) {
@@ -27,7 +26,7 @@ func ChunkFile(args []string) {
 		fmt.Printf("File will be divided into %v chunks\n", numberOfChunks)
 	}
 
-	fileHash, err := hash.HashFile(strings.Join(args, ""))
+	fileHash, err := HashFile(strings.Join(args, ""))
 
 	if err != nil {
 		fmt.Printf("Error: %s.", err)
