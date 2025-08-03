@@ -8,6 +8,7 @@ import (
 )
 
 func ChunkFile(args []string) {
+
 	var err error
 	fname := strings.Join(args, " ")
 
@@ -15,9 +16,13 @@ func ChunkFile(args []string) {
 	fi.Size, err = chunk.GetFileSize(fname)
 
 	if err != nil {
+
 		fmt.Printf("Error: %s.\n", err)
+
 	} else {
+
 		fmt.Printf("File Size: %v bits\n", fi.Size)
+
 	}
 
 	fi.ChunkSize = chunk.SelectChunkSize(fi.Size)
@@ -25,24 +30,36 @@ func ChunkFile(args []string) {
 
 	fi.NumberOfChunks, err = chunk.SelectNumberOfChunks(fi.Size, fi.ChunkSize)
 
-	if fi.NumberOfChunks > 1 {
-		fi.HasChunks = true
-	} else {
-		fi.HasChunks = false
-	}
-
 	if err != nil {
-		fmt.Printf("Error: %s. \n", err)
+
+		fmt.Printf("Error: %v\n", err)
+
 	} else {
-		fmt.Printf("File will be divided into %v chunks\n", fi.NumberOfChunks)
+
+		if fi.NumberOfChunks > 1 {
+
+			fi.HasChunks = true
+			fmt.Printf("File will be divided into %v chunks\n", fi.NumberOfChunks)
+
+		} else {
+
+			fi.HasChunks = false
+			fmt.Printf("File will be sent as one chunk.\n")
+
+		}
+
 	}
 
 	fi.Hash, err = HashFile(fi.Name)
 
 	if err != nil {
+
 		fmt.Printf("Error: %s.", err)
+
 	} else {
+
 		fmt.Printf("File SHA256 Hash: %s\n", fi.Hash)
+
 	}
 
 }
