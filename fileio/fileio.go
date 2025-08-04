@@ -7,12 +7,10 @@ import (
 	"github.com/Uhm-why/gusher/chunk"
 )
 
-func ChunkFile(args []string) {
-
+func GetFileInfo(fname string) FileInfo {
 	var err error
-	fname := strings.Join(args, " ")
 
-	fi := FileInfo{Name: fname}
+	var fi FileInfo = FileInfo{Name: fname}
 	fi.Size, err = chunk.GetFileSize(fname)
 
 	if err != nil {
@@ -46,5 +44,11 @@ func ChunkFile(args []string) {
 	} else {
 		fmt.Printf("File SHA256 Hash: %s\n", fi.Hash)
 	}
+
+	return fi
+}
+
+func ChunkFile(args []string) {
+	fi := GetFileInfo(strings.Join(args, " "))
 
 }
