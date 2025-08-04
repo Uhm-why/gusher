@@ -27,7 +27,7 @@ Also, I am doing a lot of this to learn about how different mechanisms work. The
 - [x] File Hashing
 - [ ] Read Files and Write Chunks
 - [ ] Chunk Hashing
-- [ ] Re-integrate Hashes into Complete File
+- [ ] Re-integrate Chunks into Complete File
 - [ ] Chunk and File Hash Verification
 - [ ] Implementing a Secure Protocol (not SSH)
 - [ ] Transferring Files Over Secure Protocol
