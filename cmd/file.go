@@ -2,6 +2,7 @@ package cmd
 
 import (
 	"fmt"
+	"strings"
 
 	"github.com/Uhm-why/gusher/fileio"
 	"github.com/spf13/cobra"
@@ -17,7 +18,10 @@ var fileCmd = &cobra.Command{
 	Long:  "State the name of the file that you would like to send.",
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Printf("Reading File: %s\n", args)
-		fileio.ChunkFile(args)
+
+		fi := fileio.GetFileInfo(strings.Join(args, " "))
+
+		fileio.ChunkFile(fi)
 
 	},
 }

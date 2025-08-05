@@ -2,11 +2,20 @@ package fileio
 
 import (
 	"fmt"
-	"strings"
+	"os"
 )
 
-func ChunkFile(args []string) {
-	fi := GetFileInfo(strings.Join(args, " "))
-	fmt.Printf("TODO: Implement File Chunking Logic... %v\n", fi.Name)
+func FileExists(fname string) bool {
+	_, err := os.Stat(fname)
+
+	return !os.IsNotExist(err)
+}
+
+func ChunkFile(fi FileInfo) {
+
+	if !FileExists(fi.Name) {
+		fmt.Printf("File %s does not exist", fi.Name)
+		return
+	}
 
 }
