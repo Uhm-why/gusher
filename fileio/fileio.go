@@ -14,7 +14,7 @@ func FileExists(fname string) bool {
 func ChunkFile(fi FileInfo) {
 
 	if !FileExists(fi.Name) {
-		fmt.Printf("File %s does not exist", fi.Name)
+		fmt.Printf("File %s does not exist\n", fi.Name)
 		return
 	}
 

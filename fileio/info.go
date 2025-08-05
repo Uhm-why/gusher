@@ -56,7 +56,7 @@ func GetFileInfo(fname string) FileInfo {
 	fi.Hash, err = HashFile(fi.Name)
 
 	if err != nil {
-		fmt.Printf("Error: %s.", err)
+		fmt.Printf("Error: %s.\n", err)
 	} else {
 		fmt.Printf("File SHA256 Hash: %s\n", fi.Hash)
 	}
