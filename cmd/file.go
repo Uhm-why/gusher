@@ -9,13 +9,14 @@ import (
 )
 
 func init() {
-	rootCmd.AddCommand(fileCmd)
+	rootCmd.AddCommand(chunkCmd)
+	rootCmd.AddCommand(reintCmd)
 }
 
-var fileCmd = &cobra.Command{
-	Use:   "file",
-	Short: "File to Send.",
-	Long:  "State the name of the file that you would like to send.",
+var chunkCmd = &cobra.Command{
+	Use:   "chunk",
+	Short: "File to Chunk.",
+	Long:  "State the name of the file that you would like to chunk.",
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Printf("Reading File: %s\n", args)
 
@@ -23,5 +24,15 @@ var fileCmd = &cobra.Command{
 
 		fileio.ChunkFile(fi)
 
+	},
+}
+
+var reintCmd = &cobra.Command{
+	Use:   "reint",
+	Short: "File to Reintegrate from chunks.",
+	Long:  "State the name of the chunks (i.e. filename.chunk0 to reintegrate into the orgininal file)",
+	Run: func(cmd *cobra.Command, args []string) {
+
+		fmt.Printf("Gathering chunks of file: %s\n", args)
 	},
 }
