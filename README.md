@@ -25,8 +25,8 @@ Also, I am doing a lot of this to learn about how different mechanisms work. The
 
 - [x] Implement Basic Chunk Sizing Logic
 - [x] File Hashing
-- [ ] Read Files and Write Chunks
-- [ ] Chunk Hashing
+- [x] Read Files and Write Chunks
+- [X] Chunk Hashing
 - [ ] Re-integrate Chunks into Complete File
 - [ ] Chunk and File Hash Verification
 - [ ] Implementing a Secure Protocol (not SSH)
