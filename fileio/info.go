@@ -13,7 +13,7 @@ type FileInfo struct {
 	HasChunks      bool
 	ChunkSize      int64
 	NumberOfChunks int64
-	Children       []string
+	Children       []ChunkInfo
 }
 
 type ChunkInfo struct {
