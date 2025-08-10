@@ -29,11 +29,11 @@ Also, I am doing a lot of this to learn about how different mechanisms work. The
 - [X] Chunk Hashing
 - [ ] Re-integrate Chunks into Complete File
 - [ ] Chunk and File Hash Verification
-- [ ] Implementing a Secure Protocol (not SSH)
-- [ ] Transferring Files Over Secure Protocol
-- [ ] Reading and Implementing Configurations
-- [ ] Spinning up VMs/Containers
-- [ ] Automatically Adjusting Firewall Rules for VMs/Containers
+- [ ] Implement a Secure Protocol (not SSH)
+- [ ] Transfer Files Over Secure Protocol
+- [ ] Read and Implement Configurations
+- [ ] Spin up VMs/Containers
+- [ ] Automatically Adjust Firewall Rules for VMs/Containers
 - [ ] System Status (File Transfer Progress, Up/Down Time, Running VMs/Containers, etc.) Reports
 - [ ] API
 - [ ] GUI
