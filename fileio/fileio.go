@@ -45,7 +45,7 @@ func ProcessFileWithChunks(fi FileInfo) error {
 			return fmt.Errorf("error writing to chunk %d: %v", i, err)
 		}
 
-		fmt.Printf("Wrote chunk %d: (%d bytes)\n", i, thisChunkFile)
+		fmt.Printf("Wrote chunk %d: (%d bytes)\n", i+1, thisChunkFile)
 
 		fi.Children = append(fi.Children, chunkFileN)
 
