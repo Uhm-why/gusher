@@ -5,6 +5,7 @@ import (
 	"strings"
 
 	"github.com/Uhm-why/gusher/fileio"
+	"github.com/Uhm-why/gusher/store"
 	"github.com/spf13/cobra"
 )
 
@@ -24,6 +25,8 @@ var chunkCmd = &cobra.Command{
 
 		fileio.ChunkFile(fi)
 
+		store.SaveFileInfo(fi)
+
 	},
 }
 
@@ -34,5 +37,6 @@ var reintCmd = &cobra.Command{
 	Run: func(cmd *cobra.Command, args []string) {
 
 		fmt.Printf("Gathering chunks of file: %s\n", args)
+
 	},
 }
