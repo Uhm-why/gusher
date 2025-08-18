@@ -20,7 +20,6 @@ func SaveFileInfo(fi fileio.FileInfo) error {
 	}
 
 	jsonPath := filepath.Join(outputDir, baseName+".gusher.json")
-	fmt.Print(jsonPath)
 
 	data, err := json.MarshalIndent(fi, "", "  ")
 	if err != nil {
